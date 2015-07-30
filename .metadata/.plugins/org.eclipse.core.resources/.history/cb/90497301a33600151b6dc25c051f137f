@@ -8,12 +8,16 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-
+import org.w3c.dom.Entity;
 
 import Edd.Grafico.Sprite;
 import Edd.Grafico.SpriteHoja;
-
+import Edd.azulejo.Azulejo;
+import Edd.azulejo.Pared;
+import Edd.entity.mob.Goomba;
+import Edd.entity.mob.Jugador;
 import Edd.input.KeyInput;
 
 public class MarioBros extends Canvas implements Runnable{
