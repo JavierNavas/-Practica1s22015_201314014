@@ -14,7 +14,7 @@ public class Suelo extends Azulejo {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(MarioBros.hierba.getBufferedImage(),x,y,ancho,altura,null);
+		g.drawImage(MarioBros.suelo.getBufferedImage(),x,y,ancho,altura,null);
 		
 	}
 

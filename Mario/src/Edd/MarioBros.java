@@ -3,6 +3,7 @@ package Edd;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -34,12 +35,19 @@ public class MarioBros extends Canvas implements Runnable{
      public static SpriteHoja sheet2;
      public static SpriteHoja sheet3;
      public static SpriteHoja sheet4;
+     public static SpriteHoja sheet5;
+     public static SpriteHoja sheet6;
+     public static SpriteHoja sheet7;
      public static Sprite sprite;
-     public static Sprite hierba;
+     public static Sprite pared;
+     public static Sprite suelo;
      public static Sprite mario[] =new Sprite[10];
      public static Sprite hongo;
      public static Sprite goomba;
+     public static Sprite coopa;
+     public static Sprite moneda;
      private BufferedImage image;
+     public static int monedas=0;
      
      public synchronized void start(){
     	if(running) return;
@@ -73,12 +81,19 @@ public class MarioBros extends Canvas implements Runnable{
     	 sheet = new SpriteHoja("/mario1.gif");
     	 sheet2 = new SpriteHoja("/brick.gif");
     	 sheet3 = new SpriteHoja("/Goomba.gif");
+    	 sheet4 = new SpriteHoja("/1up.gif");
+    	 sheet5 = new SpriteHoja("/ground.gif");
+    	 sheet6 = new SpriteHoja("/coopa3.png");
+    	 sheet7 = new SpriteHoja("/coin3.gif");
     	 
     	 addKeyListener(new KeyInput());
     	 
-    	 hierba = new Sprite(sheet2,1,1);
+    	 pared = new Sprite(sheet2,1,1);
     	 goomba = new Sprite(sheet3,1,1);
-    	
+    	 hongo = new Sprite(sheet4,1,1);
+    	 suelo = new Sprite(sheet5,1,1);
+    	 coopa = new Sprite(sheet6,1,1,"totuga");
+    	 moneda = new Sprite(sheet7,1,1);
     	 for(int i=0;i<mario.length;i++){
     		 mario[i] = new Sprite(sheet,1+i,1);
     	 }
@@ -128,6 +143,11 @@ public class MarioBros extends Canvas implements Runnable{
     	 Graphics g = bs.getDrawGraphics();
     	 g.setColor(Color.decode("#ADD8E6"));
     	 g.fillRect(0, 0, getWidth(), getHeight());
+    	 
+    	g.drawImage(MarioBros.moneda.getBufferedImage(),20, 50, 50, 50,null);
+    	g.setColor(Color.white);
+    	g.setFont(new Font("Courier",Font.BOLD,50));
+    	g.drawString("x"+monedas, 60, 100);
     	 //g.translate(camara.getX(), camara.getY());
     	 control.render(g);
     	 g.dispose();

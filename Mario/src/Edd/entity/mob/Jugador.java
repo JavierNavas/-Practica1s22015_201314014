@@ -1,6 +1,5 @@
 package Edd.entity.mob;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import Edd.Control;
@@ -44,7 +43,7 @@ public class Jugador extends Entity{
 		}
 		for(Azulejo t:control.azulejo){
 			if(!t.solid) break;
-			if(t.getId()==Id.Pared){
+			if(t.isSolid()&&(t.getId()==Id.Pared|| t.getId()==Id.Suelo||t.getId()==Id.Moneda)){
 				if(getLimiteArriba().intersects(t.getLimites())){
 					setVely(0);
 					y=t.getY()+t.altura;
@@ -74,18 +73,44 @@ public class Jugador extends Entity{
 					setVelx(0);
 					x=t.getX()-t.ancho;
 				}
+				
+				
 			}
+			
 		}
 		
 		for(int i =0;i<control.entity.size();i++){
 			Entity e = control.entity.get(i);
 			if(e.getId()==Id.goomba){
-				if(getLimites().intersects(e.getLimites())){
+				if(getLimiteAbajo().intersects(e.getLimiteArriba())){
+					e.die();
+					System.out.println("hahah");
+				}
+				else if (getLimites().intersects(e.getLimites())){
 					die();
+					System.out.println("hahahx");
 				}
 				
 			}
-			
+			else if(e.getId()==Id.Moneda){
+				if(getLimites().intersects(e.getLimites())){
+					MarioBros.monedas++;
+					e.die();
+				}
+				
+			}
+			else if(e.getId()==Id.Hongo){
+				if(getLimites().intersects(e.getLimites())){
+					e.die();
+				}
+		     }
+		    else if(e.getId()==Id.Koopa){
+				if(getLimites().intersects(e.getLimites())){
+					MarioBros.monedas++;
+					e.die();
+				}
+					
+				}		
 		}
 		
 		if(saltando){

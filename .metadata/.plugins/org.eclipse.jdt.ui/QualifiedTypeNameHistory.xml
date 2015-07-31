@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Edd.entity.mob.Hongo"/>
+<fullyQualifiedTypeName name="Edd.azulejo.Suelo"/>
+<fullyQualifiedTypeName name="java.util.concurrent.CopyOnWriteArrayList"/>
+<fullyQualifiedTypeName name="Edd.entity.mob.Coopa"/>
+<fullyQualifiedTypeName name="Edd.MarioBros"/>
+<fullyQualifiedTypeName name="java.awt.Font"/>
+<fullyQualifiedTypeName name="Edd.azulejo.Moneda"/>
+<fullyQualifiedTypeName name="Edd.entity.Entity"/>
+<fullyQualifiedTypeName name="Edd.entity.mob.Moneda"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+</qualifiedTypeNameHistroy>

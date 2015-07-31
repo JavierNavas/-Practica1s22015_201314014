@@ -1,0 +1,6 @@
+package Edd;
+
+public enum Id {
+Jugador,Pared, goomba,Hongo,Coopa,Hierba;
+
+}

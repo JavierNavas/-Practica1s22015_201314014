@@ -20,5 +20,9 @@ private BufferedImage capa;
  public BufferedImage getSprite(int x,int y){
 	 return capa.getSubimage(x*32-32, y*32-32, 32, 32);
  }
+ 
+ public BufferedImage getSprite2(int x,int y){
+	 return capa.getSubimage(x*32-32, y*48-48, 32, 48);
+ }
 }
 

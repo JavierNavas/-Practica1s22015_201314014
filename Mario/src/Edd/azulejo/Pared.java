@@ -16,7 +16,7 @@ public class Pared extends Azulejo{
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(MarioBros.hierba.getBufferedImage(),x,y,ancho,altura,null);
+		g.drawImage(MarioBros.pared.getBufferedImage(),x,y,ancho,altura,null);
 		
 	}
 

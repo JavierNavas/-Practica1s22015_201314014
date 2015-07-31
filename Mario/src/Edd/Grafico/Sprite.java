@@ -12,6 +12,9 @@ public class Sprite {
 		imagen= hoja.getSprite(x, y);
 	}
 	
+	public Sprite(SpriteHoja hoja,int x, int y,String tortuga){
+		imagen= hoja.getSprite2(x, y);
+	}
 	public BufferedImage getBufferedImage(){
 		return imagen;
 	}
