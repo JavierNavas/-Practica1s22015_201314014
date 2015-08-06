@@ -171,7 +171,7 @@ public class MarioBros extends Canvas implements Runnable{
     }
     
     
-     public static void main(String[] args){
+     /*public static void main(String[] args){
     	 MarioBros juego = new MarioBros();
     	 JFrame pantalla = new JFrame(TITULO);
     	 pantalla.add(juego);
@@ -182,7 +182,7 @@ public class MarioBros extends Canvas implements Runnable{
     	 pantalla.setVisible(true);
     	  pantalla.setFocusable(true);
          juego.start();
-     }
+     }*/
 
 	
     

@@ -1,0 +1,40 @@
+package Edd;
+
+public class ListaPersonaje {
+	 public Personaje inicio;
+	 public Personaje fin;
+	 public Personaje moverse;
+	 private int tamano;
+	
+	 public ListaPersonaje(){
+	        this.inicio= null;
+	        this.fin = null;
+	        this.tamano = 0;               
+	    }
+	 
+    public boolean vacio()
+	    {
+	        return(this.inicio == null);
+	    }
+    
+
+	public void agregar(Personaje nuevo){
+		 if(vacio())
+	     {
+	         inicio = nuevo;
+	         fin = nuevo;
+	         tamano = 1;
+	         moverse=inicio;
+	     }
+	     else{
+	         fin.siguiente= nuevo;
+	         nuevo.anterior=fin;
+	         fin=nuevo;
+	         tamano++;
+	     }
+	} 
+	
+	public int tamano(){
+	    return this.tamano;
+	}
+}

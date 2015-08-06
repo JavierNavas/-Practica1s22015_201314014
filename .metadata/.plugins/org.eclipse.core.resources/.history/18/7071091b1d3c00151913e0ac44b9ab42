@@ -1,0 +1,124 @@
+package Edd;
+
+public class ListaPersonaje {
+	 public Personaje inicio;
+	 public Personaje fin;
+	 public Personaje moverse;
+	 private int tamano;
+	
+	 public ListaPersonaje(){
+	        this.inicio= null;
+	        this.fin = null;
+	        this.tamano = 0;               
+	    }
+	 
+    public boolean vacio()
+	    {
+	        return(this.inicio == null);
+	    }
+    
+
+	public void agregar(Personaje nuevo){
+		 if(vacio())
+	     {
+	         inicio = nuevo;
+	         fin = nuevo;
+	         tamano = 1;
+	         moverse=inicio;
+	     }
+	     else{
+	         fin.siguiente= nuevo;
+	         nuevo.anterior=fin;
+	         fin=nuevo;
+	         tamano++;
+	     }
+	} 
+	
+	public int tamano(){
+	    return this.tamano;
+	}
+	
+	public void AgregarInicio(Personaje nuevo){
+        if(inicio==null){
+        inicio=nuevo;
+        }else{
+        nuevo.siguiente=inicio;
+        inicio.anterior=nuevo;
+        inicio=nuevo;
+        }
+        }
+	
+	public Personaje pila(){
+		if(vacio())
+	     {
+		   return  null;
+	     }
+	   else{
+			Personaje nuevo=fin;
+		    fin= fin.anterior;
+			return nuevo;
+	   }
+		
+		
+	}
+	
+   public Personaje cola(){
+	   if(vacio())
+	     {
+		   return  null;
+	     }
+	   else{
+			Personaje nuevo=inicio;
+		    inicio= inicio.siguiente;
+			return nuevo;
+	   }
+
+	}
+   
+   public boolean eliminar(String nombre)
+   {
+       Personaje anterior=null;
+       Personaje actual=inicio;
+       while(actual!=fin)
+       {
+           if(actual.nombre.equals(nombre))
+           {
+               if(anterior==null)
+               { 
+                   inicio=actual.siguiente;
+                   inicio.anterior=null;
+               }
+               else{
+                   anterior.siguiente=actual.siguiente;
+                   Personaje temporal;
+                   temporal=actual.siguiente;
+                   temporal.anterior=anterior;
+               }
+               return true;
+           }
+           anterior=actual;
+           actual=actual.siguiente;
+       }
+       if(fin.nombre.equals(nombre))
+       {
+           fin=actual.anterior;
+           return true;
+       }
+       return false;
+   }
+   
+   public void imprimir()
+   {
+   	if (vacio()){
+			System.out.println("la lista esta Vacia" );
+		}
+		else{
+			Personaje Actual=inicio;
+			while(Actual != null){
+				System.out.print(Actual.nombre+" ");
+				Actual=Actual.siguiente;
+			}
+			System.out.println();
+		}
+   }
+}

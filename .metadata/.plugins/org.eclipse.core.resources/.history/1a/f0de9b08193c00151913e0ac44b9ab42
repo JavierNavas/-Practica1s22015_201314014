@@ -1,0 +1,40 @@
+package Edd;
+
+public class Personaje {
+	Personaje siguiente;
+	Personaje anterior;
+	String nombre;
+	
+
+	Personaje(String nombre){
+		this.nombre=nombre;
+		this.siguiente = null;
+		this.anterior = null;
+	}
+
+	public Personaje getSiguiente() {
+		return siguiente;
+	}
+
+	public void setSiguiente(Personaje siguiente) {
+		this.siguiente = siguiente;
+	}
+
+	public Personaje getAnterior() {
+		return anterior;
+	}
+
+	public void setAnterior(Personaje anterior) {
+		this.anterior = anterior;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+
+}

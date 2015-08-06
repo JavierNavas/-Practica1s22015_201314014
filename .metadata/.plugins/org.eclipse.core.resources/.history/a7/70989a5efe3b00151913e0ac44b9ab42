@@ -1,0 +1,19 @@
+package Edd;
+
+public class ListaPersonaje {
+	 public Personaje inicio;
+	 public Personaje fin;
+	 public Personaje moverse;
+	 private int tamano;
+	
+	 public ListaPersonaje(){
+	        this.inicio= null;
+	        this.fin = null;
+	        this.tamano = 0;               
+	    }
+	 
+    public boolean vacio()
+	    {
+	        return(this.inicio == null);
+	    }
+}
