@@ -13,8 +13,10 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="impri" key="selection"/>
 		<list key="findhistory">
+			<item value="impri"/>
+			<item value="id"/>
 			<item value="die"/>
 		</list>
 		<list key="replacehistory">

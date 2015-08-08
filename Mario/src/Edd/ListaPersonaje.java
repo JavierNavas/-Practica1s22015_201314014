@@ -96,7 +96,7 @@ public class ListaPersonaje {
    }
    
    
-   public String EliminaInicio(){
+   public Personaje EliminaInicio(){
 		if(vacio()){
 		System.out.println("No hay elementos");
 		return null;
@@ -104,24 +104,26 @@ public class ListaPersonaje {
 		Personaje nuevo=inicio;
 	   inicio=fin=null;
 		this.tamano--;
-		return nuevo.nombre;
+		return nuevo;
 		}
 		else{
 		Personaje nuevo=inicio;
 		inicio=inicio.siguiente;
 		this.tamano--;
-		return nuevo.nombre;
+		return nuevo;
 		}
 	}
    
-   public void EliminaFinal(){
+   public Personaje EliminaFinal(){
        if(vacio()) {
        	System.out.println("No hay elementos");
        }
        else{
    		if(inicio==fin){
+   		Personaje nuevo=inicio;
    		inicio=fin=null;
    		this.tamano--;
+   		return nuevo;
    		}else{
            Personaje actual = inicio;
            Personaje anterior= inicio;
@@ -131,8 +133,11 @@ public class ListaPersonaje {
            }
            anterior.siguiente=null;
            this.tamano--;
+           return actual;
    		}
+   		
      }
+       return null;
    }
    
    
