@@ -1,0 +1,74 @@
+package Edd;
+
+public class ListaCabezera {
+Cabezera primero;
+Cabezera ultimo;
+
+ListaCabezera() {
+	this.primero = null;
+	this.ultimo = null;
+}
+
+public void insertar(Cabezera insertar){
+	if(vacio()){
+			primero=insertar;
+			ultimo=insertar;
+		}else{
+			if(insertar.getX()<primero.getX()){
+				insertarFrente(insertar);
+			}
+			else if(insertar.getX()>ultimo.getX()){
+				InsertarFinal(insertar);
+			}else{
+				InsertarMedio(insertar);
+			}
+		}
+	}
+
+public boolean vacio(){
+	if(primero==null ){
+		return true;
+	}
+	else{
+	return false;
+	}
+}
+
+public void insertarFrente(Cabezera insertar){
+	primero.setAnterior(insertar);
+	insertar.setSiguiente(primero);
+	primero=insertar;//el nodo agregado se vuelve el primero de la lista
+}
+
+public void InsertarFinal(Cabezera insertar){
+	ultimo.setSiguiente(insertar);
+	insertar.setAnterior(ultimo);
+	ultimo=insertar;// el nodo ingresado se vuelve el el tultimo de la lista
+}
+
+public void InsertarMedio(Cabezera insertar){
+	Cabezera aux1; 
+	Cabezera aux2;
+	aux1=primero;
+	while(aux1.getX()<insertar.getX()){
+		aux1=aux1.getSiguiente();
+	}
+	aux2=aux1.getAnterior();
+	aux2.setSiguiente(insertar);  
+	aux1.setAnterior(insertar);
+	insertar.setSiguiente(aux1);
+	insertar.setAnterior(aux2);
+	
+			
+}
+
+public void recorrer(){
+	if(!vacio()){
+	Cabezera aux1=primero;
+	while(aux1!=null){
+	aux1=aux1.getSiguiente();	
+	}
+   }
+}
+
+}
