@@ -1,0 +1,42 @@
+package Edd;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JLabel;
+
+public class NodoMatriz extends JLabel implements MouseListener {
+private NodoMatriz arriba=null;
+private NodoMatriz abajo=null;
+private NodoMatriz derecha=null;
+private NodoMatriz izquierda=null;
+@Override
+
+
+public void mouseClicked(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseEntered(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseExited(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mousePressed(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseReleased(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
+}

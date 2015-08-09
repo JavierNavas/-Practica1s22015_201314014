@@ -1,0 +1,23 @@
+package Edd;
+
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+public class Tablero extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	Tablero(){
+		Dimension d = new Dimension();
+		 setLocation((int) ((d.getWidth()/2)+360), 20);
+		 this.setTitle("Mario Maker Creacion de mapa");
+		 this.setSize(1000,1000);
+		 setDefaultCloseOperation(0);//finaliza el programa cuando se da click en la X
+	     setResizable(false);//quita la opcion de cambiar tamanño
+	}
+
+}

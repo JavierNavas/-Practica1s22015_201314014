@@ -1,0 +1,92 @@
+package Edd;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.net.URL;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class NodoMatriz extends JLabel implements MouseListener {
+private NodoMatriz arriba=null;
+private NodoMatriz abajo=null;
+private NodoMatriz derecha=null;
+private NodoMatriz izquierda=null;
+String nombre="null";
+String tipo="null";
+int id ;
+
+
+
+
+
+public NodoMatriz(String nombre,
+		String tipo, int id) {
+	this.arriba = null;
+	this.abajo = null;
+	this.derecha = null;
+	this.izquierda = null;
+	this.nombre = nombre;
+	this.tipo = tipo;
+	this.id = id;
+	this.setSize(40, 40);
+	 String path4 = "/goom.png";
+     URL url4 = this.getClass().getResource(path4);  
+     ImageIcon icon4 = new ImageIcon(url4);
+    this.setIcon(icon4);
+	
+}
+public NodoMatriz getArriba() {
+	return arriba;
+}
+public void setArriba(NodoMatriz arriba) {
+	this.arriba = arriba;
+}
+public NodoMatriz getAbajo() {
+	return abajo;
+}
+public void setAbajo(NodoMatriz abajo) {
+	this.abajo = abajo;
+}
+public NodoMatriz getDerecha() {
+	return derecha;
+}
+public void setDerecha(NodoMatriz derecha) {
+	this.derecha = derecha;
+}
+public NodoMatriz getIzquierda() {
+	return izquierda;
+}
+public void setIzquierda(NodoMatriz izquierda) {
+	this.izquierda = izquierda;
+}
+
+
+@Override
+public void mouseClicked(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseEntered(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseExited(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mousePressed(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseReleased(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
+}

@@ -5,14 +5,16 @@ public class Personaje {
 	Personaje anterior;
 	String nombre;
 	String tipo;
+	int id;
 	
 	Personaje(){
 		this.siguiente = null;
 		this.anterior = null;
 	}
-	Personaje(String nombre,String tipo){
+	Personaje(String nombre,String tipo,int id){
 		this.nombre=nombre;
 		this.tipo=tipo;
+		this.id=id;
 		this.siguiente = null;
 		this.anterior = null;
 	}

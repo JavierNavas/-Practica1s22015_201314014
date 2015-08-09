@@ -1,0 +1,15 @@
+package Edd;
+
+public class Comunicador {
+	 ListaPersonaje lista =new 
+
+	public ListaPersonaje getLista() {
+		return lista;
+	}
+
+	public void setLista(ListaPersonaje lista) {
+		this.lista = lista;
+	}
+	 
+	 
+}

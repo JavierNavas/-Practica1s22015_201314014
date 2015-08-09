@@ -1,5 +1,7 @@
 package Edd;
 
+import javax.swing.JPanel;
+
 public class ListaPersonaje {
 	 public Personaje inicio;
 	 public Personaje fin;
@@ -62,7 +64,7 @@ public class ListaPersonaje {
 
 	}
    
-   public Personaje eliminar(String dato)
+   public Personaje eliminar(int dato)
    {
        Personaje eliminar = null;
        if(!vacio())
@@ -70,7 +72,7 @@ public class ListaPersonaje {
               Personaje  anterior = inicio;
            for(int i =0;i<this.tamano;i++)
            {
-               if(actual.nombre.equals(dato))
+               if(actual.id==dato)
                {
                    if(actual == inicio)
                    {
@@ -140,8 +142,18 @@ public class ListaPersonaje {
        return null;
    }
    
+   public void modificar(String nombre,int id){
+	   Personaje temp=inicio;
+   	while(temp!=null){
+   		if (temp.id==id){
+   			temp.nombre=nombre;
+   			break;
+   		}
+   		temp=temp.siguiente;
+   	}
+   }
    
-   public void imprimir()
+   public void imprimir(JPanel panel)
    {
    	if (vacio()){
 			System.out.println("la lista esta Vacia" );
@@ -155,4 +167,28 @@ public class ListaPersonaje {
 			System.out.println();
 		}
    }
+   
+	public Personaje obtener(int a){
+	  Personaje actual = inicio;
+	      for(int pos =0;pos<a;pos++){
+	          if(actual != null){
+	          actual = actual.siguiente;
+	          }
+	          else 
+	              return null;
+	      }
+	    
+	    return actual;
+	 }
+	
+	public Personaje buscar(int id){
+	    Personaje temp=inicio;
+	    	while(temp!=null){
+	    		if (temp.id==id){
+	    			return temp;
+	    		}
+	    		temp=temp.siguiente;
+	    	}
+	    	return null;
+	    }
 }

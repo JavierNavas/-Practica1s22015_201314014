@@ -36,13 +36,16 @@ public class Inicio extends JFrame implements ActionListener {
 	private JTextField texto,nombrepersonaje;
 	private JLabel mario,gomba,pared,eliga,uno,dos,tres,cuatro,cinco,seis,siete;
 	JLabel anuncio2 = new JLabel("Eliga hotel");
-	JButton pa,btnAgregarmario,btngoomba,btnficha,btncastillo,btnhongo,btneliminar,btnimprimir,btnsuelo,btnpared,btnkoopa,prueba,p;
-	
+	JButton pa,table,btngoomba,btnficha,btnhongo,btnimprimir,btnsuelo,btnpared,btnkoopa,p;
+	static JButton btnAgregarmario,btncastillo;
+	int cont=1;
 	
 	JPanel pnlpersonaje=new JPanel();
 	 JScrollPane scroll = new JScrollPane();
-	 ListaPersonaje lista =new ListaPersonaje();
+	 static ListaPersonaje lista =new ListaPersonaje();
+	 static jcPanel mi_panel = new jcPanel();
 
+	
 	public Inicio(){
 		Dimension d = new Dimension();
 		 setLocation((int) ((d.getWidth()/2)+360), 20);
@@ -69,9 +72,6 @@ public class Inicio extends JFrame implements ActionListener {
 	        btnsuelo=new JButton("Agregar Suelo");
 	        btnsuelo.setBounds(new Rectangle(250,230,125,20));
 	        btnsuelo.addActionListener(this);
-	        prueba=new JButton("limpiar");
-	        prueba.setBounds(new Rectangle(450,230,125,20));
-	        prueba.addActionListener(this);
 	        btnkoopa=new JButton("Agregar Koopa");
 	        btnkoopa.setBounds(new Rectangle(250,290,125,20));
 	        btnkoopa.addActionListener(this);
@@ -87,12 +87,12 @@ public class Inicio extends JFrame implements ActionListener {
 	        btncastillo=new JButton("Agregar Castillo");
 	        btncastillo.setBounds(new Rectangle(250,530,125,20));
 	        btncastillo.addActionListener(this);
-	        btneliminar=new JButton("Eliminar");
-	        btneliminar.setBounds(new Rectangle(450,200,100,20));
-	        btneliminar.addActionListener(this);
 	        btnimprimir=new JButton("imprimir");
 	        btnimprimir.setBounds(new Rectangle(250,750,50,20));
 	        btnimprimir.addActionListener(this);  
+	        table=new JButton("Ir a Tablero");
+	        table.setBounds(new Rectangle(450,150,150,20));
+	        table.addActionListener(this);  
 	        String path = "/mar1.jpeg";
 	        URL url = this.getClass().getResource(path);  
 	        ImageIcon icon = new ImageIcon(url);  
@@ -148,7 +148,6 @@ public class Inicio extends JFrame implements ActionListener {
 			pnlseleccion.setLayout(null);
 			pnlseleccion.add(nombrepersonaje);
 			pnlseleccion.add(btnAgregarmario);
-			pnlseleccion.add(btneliminar);
 			pnlseleccion.add(btnimprimir);
 			pnlseleccion.add(mario);
 			pnlseleccion.add(eliga);
@@ -166,8 +165,7 @@ public class Inicio extends JFrame implements ActionListener {
 			pnlseleccion.add(cinco);
 			pnlseleccion.add(seis);
 			pnlseleccion.add(siete);
-			pnlseleccion.add(prueba);
-			
+			pnlseleccion.add(table);
 		
 			MenuJuego.addTab("Agregar Personaje",pnlseleccion);
 			pnlpersonaje.setLayout(null);
@@ -181,14 +179,14 @@ public class Inicio extends JFrame implements ActionListener {
 		        pa.addActionListener(this);
 			 pnlpersonaje.add(p);
 			 pnlpersonaje.add(pa);
-			 scroll.setViewportView(pnlpersonaje);
+			 scroll.setViewportView(mi_panel);
 			 MenuJuego.addTab("Personajes en Lista",scroll);
 		
 			// scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		      //  scroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 			
 		
-		      getContentPane().add(MenuJuego); 
+		      getContentPane().add(MenuJuego,BorderLayout.CENTER); 
 
 			addWindowListener(new manVentana());
 			
@@ -198,67 +196,78 @@ public class Inicio extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource()==btnAgregarmario) {
-			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"mario");
+			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"mario",cont);
 			lista.agregar(nuevo);
 			nombrepersonaje.setText("");
+			actualizar();
+			cont++;
+		    btnAgregarmario.setEnabled(false);
 		}
 		
 		if (e.getSource()==btngoomba) {
-			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"goomba");
+			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"goomba",cont);
 			lista.agregar(nuevo);
 			nombrepersonaje.setText("");
+			actualizar();
+			cont++;
 		}
 		
 		if (e.getSource()==btnkoopa) {
-			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"koopa");
+			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"koopa",cont);
 			lista.agregar(nuevo);
 			nombrepersonaje.setText("");
+			actualizar();
+			cont++;
 		}
 		
 		if (e.getSource()==btncastillo) {
-			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"castillo");
+			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"castillo",cont);
 			lista.agregar(nuevo);
 			nombrepersonaje.setText("");
+			actualizar();
+			cont++;
 		}
 		
 		if (e.getSource()==btnficha) {
-			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"ficha");
+			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"ficha",cont);
 			lista.agregar(nuevo);
 			nombrepersonaje.setText("");
+			actualizar();
+			cont++;
 		}
 		
 		if (e.getSource()==btnpared) {
-			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"pared");
+			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"pared",cont);
 			lista.agregar(nuevo);
 			nombrepersonaje.setText("");
+			actualizar();
+			cont++;
 		}
 		
 		if (e.getSource()==btnsuelo) {
-			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"suelo");
+			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"suelo",cont);
 			lista.agregar(nuevo);
 			nombrepersonaje.setText("");
+			actualizar();
+			cont++;
 		}
 		
 		if (e.getSource()==btnhongo) {
-			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"hongo");
+			Personaje nuevo= new Personaje(nombrepersonaje.getText(),"hongo",cont);
 			lista.agregar(nuevo);
 			nombrepersonaje.setText("");
+			mi_panel.removeAll();
+			actualizar();
+			cont++;
 		}
 if (e.getSource()==btnimprimir) {
-			lista.imprimir();
+			lista.imprimir(pnlpersonaje);
 			System.out.println(""+lista.tamano());
 		}
-if (e.getSource()==btneliminar) {
-	System.out.println(lista.EliminaFinal()+"sssad");
-//lista.eliminar(nombrepersonaje.getText());
-		System.out.println(nombrepersonaje.getText()+"sss");
-		
-	
-	
-}
-if (e.getSource()==prueba) {
-	pnlpersonaje.removeAll();
-	pnlpersonaje.repaint();
+if (e.getSource()==table) {
+	Tablero inicio = new Tablero();
+	inicio.setVisible(true);
+
 }
 		
 	}
@@ -310,6 +319,8 @@ if (e.getSource()==prueba) {
 		
 	}
 	
+	
+	
 	public void PreguntaCerrar()
 	{
 		int Opcion;
@@ -318,6 +329,53 @@ if (e.getSource()==prueba) {
 			{
 				System.exit(0);
 			}				
+	}
+	public static void BorrarPersonaje(int id) {
+		if(lista.buscar(id).tipo.equals("mario")){
+			btnAgregarmario.setEnabled(true);
+		}
+		if(lista.buscar(id).tipo.equals("castillo")){
+			btncastillo.setEnabled(true);
+		}
+		lista.eliminar(id);
+		
+		
+	}
+	public static void ModificarPersonaje(String nombre, int id) {
+		lista.modificar(nombre, id);
+	}
+	
+	public static void actualizar(){
+		mi_panel.removeAll();
+		for(int i=0;i<lista.tamano();i++){
+			String dinujo="";
+			if(lista.obtener(i).tipo.equals("mario")){
+				dinujo="/mar1.jpeg";
+			}
+			if(lista.obtener(i).tipo.equals("goomba")){
+				dinujo="/goom.png";
+			}
+			if(lista.obtener(i).tipo.equals("koopa")){
+				dinujo="/koop.png";
+			}
+			if(lista.obtener(i).tipo.equals("castillo")){
+				dinujo="/castillo.jpg";
+			}
+			if(lista.obtener(i).tipo.equals("hongo")){
+				dinujo="/1up.gif";
+			}
+			if(lista.obtener(i).tipo.equals("ficha")){
+				dinujo="/ficha.jpg";
+			}
+			if(lista.obtener(i).tipo.equals("pared")){
+				dinujo="/pare.png";
+			}
+			if(lista.obtener(i).tipo.equals("suelo")){
+				dinujo="/ground.gif";
+			}
+			mi_panel.Mi_Componente(dinujo,lista.obtener(i).id,lista.obtener(i).nombre);
+		}
+		mi_panel.repaint();
 	}
 	
 }

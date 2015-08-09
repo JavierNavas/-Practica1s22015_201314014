@@ -1,0 +1,27 @@
+package Edd;
+
+import java.awt.Rectangle;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class jpComponente extends JPanel {
+	
+
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+JButton btn;
+	public jpComponente( int index ) {
+		   //JPanel
+        btn=new JButton("Agregar Ficha");
+        btn.setBounds(new Rectangle(10,10,125,20));
+		   setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+		   this.setSize(230, 30);
+		   this.add(btn);
+		   this.setVisible(true);
+		   //se agrega un comando al boton
+		   this.btn.setActionCommand("key_" + index);
+		}
+}

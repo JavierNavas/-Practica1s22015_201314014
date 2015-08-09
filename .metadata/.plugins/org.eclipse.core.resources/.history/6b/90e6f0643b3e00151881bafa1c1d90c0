@@ -1,0 +1,10 @@
+package Edd;
+
+public class NodoMatriz {
+private NodoMatriz arriba=null;
+private NodoMatriz abajo=null;
+private NodoMatriz derecha=null;
+private NodoMatriz izquierda=null;
+
+
+}

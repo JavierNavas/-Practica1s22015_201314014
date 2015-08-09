@@ -1,0 +1,34 @@
+package Edd;
+
+import java.awt.Dimension;
+import java.awt.Rectangle;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class jpComponente extends JPanel {
+	
+
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+JButton btn;
+JTextField nombrepersonaje;
+	public jpComponente( int index ) {
+		   //JPanel
+		
+		 nombrepersonaje=new JTextField("");
+	        nombrepersonaje.setBounds(new Rectangle(140,50,125,25));
+        btn=new JButton("Agregar Ficha");
+        btn.setBounds(new Rectangle(10,10,125,20));
+		   setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+		   this.setPreferredSize(new Dimension(300, 300));
+		   this.add(btn);
+		   this.add(nombrepersonaje);
+		   this.setVisible(true);
+		   //se agrega un comando al boton
+		   this.btn.setActionCommand("key_" + index);
+		}
+}
