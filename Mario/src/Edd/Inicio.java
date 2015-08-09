@@ -142,6 +142,9 @@ public class Inicio extends JFrame implements ActionListener {
 	        siete =new JLabel(); 
 	        siete.setIcon(icon7);  
 	        siete.setBounds(new Rectangle(100,530,180,55));
+	       
+
+	        
 	        //seleccion de personajes
 	        pnlseleccion=new JPanel();
 			pnlseleccion.setLayout(null);

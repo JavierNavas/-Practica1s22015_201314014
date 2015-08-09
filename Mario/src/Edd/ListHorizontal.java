@@ -17,10 +17,10 @@ public class ListHorizontal {
 				primero=insertar;
 				ultimo=insertar;
 			}else{
-				if(insertar.getX()<primero.getX()){
+				if(insertar.getX2()<primero.getX2()){
 					insertarFrente(insertar);
 				}
-				else if(insertar.getX()>ultimo.getX()){
+				else if(insertar.getX2()>ultimo.getX2()){
 					InsertarFinal(insertar);
 				}else{
 					InsertarMedio(insertar);
@@ -53,7 +53,7 @@ public class ListHorizontal {
 		NodoMatriz aux1;
 		NodoMatriz aux2;
 		aux1=primero;
-		while(aux1.getX()<insertar.getX()){
+		while(aux1.getX2()<insertar.getX2()){
 			aux1=aux1.getDerecha();
 		}
 		aux2=aux1.getIzquierda();

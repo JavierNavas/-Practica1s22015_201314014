@@ -1,0 +1,115 @@
+package Edd;
+
+import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.net.URL;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class NodoMatriz extends JLabel implements MouseListener {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private NodoMatriz arriba=null;
+private NodoMatriz abajo=null;
+private NodoMatriz derecha=null;
+private NodoMatriz izquierda=null;
+Personaje personaje;
+int x,y;
+
+
+public NodoMatriz(int x,int y,Personaje personaje,String imagen) {
+	this.arriba = null;
+	this.abajo = null;
+	this.derecha = null;
+	this.izquierda = null;
+	this.personaje=personaje;
+	this.x=x;
+	this.y=y;
+	this.setLayout(null);
+	String path4 = imagen;
+    URL url4 = this.getClass().getResource(path4);  
+    ImageIcon icon4 = new ImageIcon(url4);
+    this.setIcon(icon4);
+    addMouseListener(this);
+ 
+	
+	
+}
+public NodoMatriz getArriba() {
+	return arriba;
+}
+public void setArriba(NodoMatriz arriba) {
+	this.arriba = arriba;
+}
+public NodoMatriz getAbajo() {
+	return abajo;
+}
+public void setAbajo(NodoMatriz abajo) {
+	this.abajo = abajo;
+}
+public NodoMatriz getDerecha() {
+	return derecha;
+}
+public void setDerecha(NodoMatriz derecha) {
+	this.derecha = derecha;
+}
+public NodoMatriz getIzquierda() {
+	return izquierda;
+}
+public void setIzquierda(NodoMatriz izquierda) {
+	this.izquierda = izquierda;
+}
+
+public int getX() {
+	return x;
+}
+public void setX(int x) {
+	this.x = x;
+}
+public int getY() {
+	return y;
+}
+public void setY(int y) {
+	this.y = y;
+}
+
+
+
+public Personaje getPersonaje() {
+	return personaje;
+}
+public void setPersonaje(Personaje personaje) {
+	this.personaje = personaje;
+}
+@Override
+public void mouseClicked(MouseEvent e) {
+	System.out.println("hahaha");
+	
+}
+@Override
+public void mouseEntered(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseExited(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mousePressed(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseReleased(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
+}

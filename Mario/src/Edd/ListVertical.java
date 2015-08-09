@@ -17,10 +17,10 @@ public void insertar(NodoMatriz insertar){
 			primero=insertar;
 			ultimo=insertar;
 		}else{
-			if(insertar.getY()<primero.getY()){
+			if(insertar.getY2()<primero.getY2()){
 				insertarFrente(insertar);
 			}
-			else if(insertar.getY()>ultimo.getY()){
+			else if(insertar.getY2()>ultimo.getY2()){
 				InsertarFinal(insertar);
 			}else{
 				InsertarMedio(insertar);
@@ -53,7 +53,7 @@ public void InsertarMedio(NodoMatriz insertar){
 	NodoMatriz aux1;
 	NodoMatriz aux2;
 	aux1=primero;
-	while(aux1.getY()<insertar.getY()){
+	while(aux1.getY2()<insertar.getY2()){
 		aux1=aux1.getAbajo();
 	}
 	aux2=aux1.getArriba();

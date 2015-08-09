@@ -1,0 +1,67 @@
+package Edd;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Rectangle;
+
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class MatrixPersonaje extends JPanel{
+ /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+ListaCabezera cabezera;
+ ListaLateral lateral;
+ int cont,c,f=0;
+
+ private JLabel mario;
+ public MatrixPersonaje(){
+	 cabezera=new ListaCabezera();//iniciando cabezera y lateral
+	 lateral=new ListaLateral();
+	 this.setSize(800, 600);
+	 this.setLayout(null);
+	 mario =new JLabel("hola"); 
+     mario.setBounds(500,110,180,32);
+     add(mario);
+     NodoMatriz nodo = new NodoMatriz(2,3,null,"/celeste.png");
+     nodo.setBounds(100,110,180,32);
+     nodo.getParent().repaint();
+     add(nodo);
+ }
+ 
+ public void agregar(int x,int y,Personaje personaje,String imagen ){
+	 NodoMatriz nodo = new NodoMatriz(x,y,personaje,imagen);
+	 if(cabezera.existe(x)==false){
+		 cabezera.insertar(new Cabezera(x));
+	 }
+	 if(lateral.existe(y)==false){
+		 lateral.insertar(new Lateral(y));
+	 }
+	 Cabezera Ctemporal;
+	 Lateral Ltemporal;
+	 Ctemporal=cabezera.buscar(x);
+	 Ltemporal=lateral.buscar(y);
+	 Ctemporal.getColumna().insertar(nodo);	
+	 Ltemporal.getFila().insertar(nodo);
+	 nodo.setBounds(new Rectangle(x+f,y+c,40,40));
+	 this.add(nodo);
+	 this.repaint();
+	 System.out.println("se inserto"+personaje.nombre);
+	 f=f+40;
+	 c=c+40;
+ }
+ public void llenar(int x,int y){
+	 String imagen ="/celeste.png";
+	 Personaje aux = new Personaje("null","null",0);
+	 for(int i=0;i<x;i++){
+		 for(int j=0;j<y;j++){
+			 agregar(i,j,aux,imagen);
+		 }
+	 }
+ }
+ 
+}
