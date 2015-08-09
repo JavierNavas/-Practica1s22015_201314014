@@ -1,0 +1,15 @@
+package Edd;
+
+public class Cabezera {
+	int x;
+   Cabezera siguiente;
+   Cabezera anterior;
+   ListVertical columna;
+   
+   Cabezera(int x){
+	   this.x=x;
+	   this.siguiente=null;
+	   this.anterior=null;
+	   this.columna=new ListVertical();
+   }
+}

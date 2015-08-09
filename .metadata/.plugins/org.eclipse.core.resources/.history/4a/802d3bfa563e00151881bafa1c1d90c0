@@ -1,0 +1,6 @@
+package Edd;
+
+public class Cabezera {
+   Cabezera siguiente;
+   Cabezera anterior;
+}

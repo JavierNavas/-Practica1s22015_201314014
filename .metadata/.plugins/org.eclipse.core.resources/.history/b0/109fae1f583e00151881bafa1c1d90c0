@@ -1,0 +1,17 @@
+package Edd;
+
+public class Lateral {
+	int y;
+	   Lateral siguiente;
+	   Lateral anterior;
+	   ListHorizontal fila;
+	   
+	   Lateral(int y){
+		   this.y=y;
+		   this.siguiente=null;
+		   this.anterior=null;
+		   this.fila=new ListHorizontal();
+	   }
+  
+	 
+}
