@@ -35,6 +35,7 @@ public class Inicio extends JFrame implements ActionListener {
 	JTabbedPane MenuJuego;
 	private JTextField texto,nombrepersonaje;
 	private JLabel mario,gomba,pared,eliga,uno,dos,tres,cuatro,cinco,seis,siete;
+	JLabel anuncio2 = new JLabel("Eliga hotel");
 	JButton pa,table,btngoomba,btnficha,btnhongo,btnimprimir,btnsuelo,btnpared,btnkoopa,p;
 	static JButton btnAgregarmario,btncastillo;
 	int cont=1;

@@ -14,14 +14,14 @@ private NodoMatriz derecha=null;
 private NodoMatriz izquierda=null;
 String nombre="null";
 String tipo="null";
-int id,x,y;
+int id ;
 
 
 
 
 
 public NodoMatriz(String nombre,
-		String tipo, int id,int x,int y) {
+		String tipo, int id) {
 	this.arriba = null;
 	this.abajo = null;
 	this.derecha = null;
@@ -29,8 +29,6 @@ public NodoMatriz(String nombre,
 	this.nombre = nombre;
 	this.tipo = tipo;
 	this.id = id;
-	this.x=x;
-	this.y=y;
 	this.setSize(40, 40);
 	 String path4 = "/goom.png";
      URL url4 = this.getClass().getResource(path4);  
@@ -63,18 +61,6 @@ public void setIzquierda(NodoMatriz izquierda) {
 	this.izquierda = izquierda;
 }
 
-public int getX() {
-	return x;
-}
-public void setX(int x) {
-	this.x = x;
-}
-public int getY() {
-	return y;
-}
-public void setY(int y) {
-	this.y = y;
-}
 
 @Override
 public void mouseClicked(MouseEvent e) {

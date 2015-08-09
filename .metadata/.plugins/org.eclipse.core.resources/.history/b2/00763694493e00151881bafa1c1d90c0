@@ -1,0 +1,34 @@
+package Edd;
+
+public class ListVertical {
+NodoMatriz primero;
+NodoMatriz ultimo;
+
+
+
+
+public ListVertical() {
+	this.primero = null;
+	this.ultimo = null;
+}
+
+public void insertar(NodoMatriz insertar){
+	if(vacio()){
+			primero=ultimo=insertar;
+			
+		}else{
+			
+		}
+	}
+
+public boolean vacio(){
+	if(primero==null ){
+		return true;
+	}
+	else{
+	return false;
+	}
+}
+
+
+}
