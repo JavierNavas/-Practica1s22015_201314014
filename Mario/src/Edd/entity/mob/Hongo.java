@@ -10,8 +10,8 @@ import Edd.entity.Entity;
 
 public class Hongo extends Entity {
 
-	public Hongo(int x, int y, int ancho, int altura, boolean solid, Id id, Control control) {
-		super(x, y, ancho, altura, solid, id, control);
+	public Hongo(int x, int y, int ancho, int altura, Id id, Control control) {
+		super(x, y, ancho, altura, id, control);
 		// TODO Auto-generated constructor stub
 	}
 

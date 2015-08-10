@@ -16,7 +16,7 @@ public class KeyInput implements KeyListener{
 		  if(en.getId()==Id.Jugador){
 			switch(key){
 			case KeyEvent.VK_W:
-				en.setVely(-5);
+				en.setVely(-4);
 				if(!en.saltando) {
 					en.saltando= true;
 					en.gravedad=5.0;

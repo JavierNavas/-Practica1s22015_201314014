@@ -13,8 +13,8 @@ public class Jugador extends Entity{
 	private int framedelay=0;
 	
    private boolean animacion = false;
-	public Jugador(int x, int y, int ancho, int altura, boolean solid, Id id, Control control) {
-		super(x, y, ancho, altura, solid, id, control);
+	public Jugador(int x, int y, int ancho, int altura, Id id, Control control) {
+		super(x, y, ancho, altura, id, control);
 	
 	}
 
@@ -34,35 +34,36 @@ public class Jugador extends Entity{
 	    y+=vely;
 		if(x<=0) x=0;
 		if(y<=0) y =0;
-		if(x+ancho>=1000) x=1000-ancho;
-		if(y+altura>=700) y=700-altura;
+		if(x+ancho>=1100) x=1100-ancho;
 		if(velx!=0){
 			animacion=true;
 		}else{
 			animacion=false;
 		}
-		for(Azulejo t:control.azulejo){
-			if(!t.solid) break;
-			if(t.isSolid()&&(t.getId()==Id.Pared|| t.getId()==Id.Suelo||t.getId()==Id.Moneda)){
+		for(int i=0;i<control.azulejo.size();i++){
+			Azulejo t= control.azulejo.get(i);
+			if(t.isSolid()){
 				if(getLimiteArriba().intersects(t.getLimites())){
 					setVely(0);
 					y=t.getY()+t.altura;
 					if(saltando){
 						saltando=false;
-						gravedad=0.0;
+						gravedad=0.8;
 			            felling=true;
 					}
+					
 				}
 				if(getLimiteAbajo().intersects(t.getLimites())){
 					setVely(0);
-					y=t.getY()-t.altura;
+					
 					if(felling){
 						felling=false;
 					}
 				}else{
 					if(!felling && !saltando){
-						gravedad=0.0;
 						felling=true;
+						gravedad=0.8;
+						
 					}
 				}
 				if(getLimiteIzquierda().intersects(t.getLimites())){
@@ -73,8 +74,12 @@ public class Jugador extends Entity{
 					setVelx(0);
 					x=t.getX()-t.ancho;
 				}
-				
-				
+			
+			}else{
+				if(getLimites().intersects(t.getLimites())&&t.getId()==Id.Moneda){
+					MarioBros.monedas++;
+					t.die();
+				}
 			}
 			
 		}
@@ -92,13 +97,6 @@ public class Jugador extends Entity{
 				}
 				
 			}
-			else if(e.getId()==Id.Moneda){
-				if(getLimites().intersects(e.getLimites())){
-					MarioBros.monedas++;
-					e.die();
-				}
-				
-			}
 			else if(e.getId()==Id.Hongo){
 				if(getLimites().intersects(e.getLimites())){
 					e.die();
@@ -107,10 +105,9 @@ public class Jugador extends Entity{
 		    else if(e.getId()==Id.Koopa){
 				if(getLimites().intersects(e.getLimites())){
 					MarioBros.monedas++;
-					e.die();
+					die();
 				}
-					
-				}		
+		    }
 		}
 		
 		if(saltando){

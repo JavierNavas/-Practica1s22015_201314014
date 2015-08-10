@@ -6,7 +6,6 @@
 <fullyQualifiedTypeName name="Edd.entity.mob.Coopa"/>
 <fullyQualifiedTypeName name="Edd.MarioBros"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
-<fullyQualifiedTypeName name="Edd.azulejo.Moneda"/>
 <fullyQualifiedTypeName name="Edd.entity.Entity"/>
 <fullyQualifiedTypeName name="Edd.entity.mob.Moneda"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
@@ -34,4 +33,5 @@
 <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 <fullyQualifiedTypeName name="java.awt.FlowLayout"/>
 <fullyQualifiedTypeName name="java.awt.Dimension"/>
+<fullyQualifiedTypeName name="Edd.azulejo.Moneda"/>
 </qualifiedTypeNameHistroy>

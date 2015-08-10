@@ -11,8 +11,8 @@ import Edd.entity.Entity;
 
 public class Coopa extends Entity {
 	private Random aleatorio = new Random();
-	public Coopa(int x, int y, int ancho, int altura, boolean solid, Id id, Control control) {
-		super(x, y, ancho, altura, solid, id, control);
+	public Coopa(int x, int y, int ancho, int altura, Id id, Control control) {
+		super(x, y, ancho, altura, id, control);
 		int dir = aleatorio.nextInt(2);
 		switch(dir){
 		case 0:

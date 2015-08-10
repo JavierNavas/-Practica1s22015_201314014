@@ -269,6 +269,7 @@ if (e.getSource()==btnimprimir) {
 if (e.getSource()==table) {
 	Tablero inicio = new Tablero();
 	inicio.setVisible(true);
+	inicio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 }
 		

@@ -131,6 +131,7 @@ public class MarioBros extends Canvas implements Runnable{
  				frames=0;
  				ticks=0;
  			}
+ 			
  		}
  		stop();
  	 }

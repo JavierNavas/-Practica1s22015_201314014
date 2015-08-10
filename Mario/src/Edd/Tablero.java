@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -23,8 +24,8 @@ public class Tablero extends JFrame implements ActionListener{
 	MatrixPersonaje matriz = new MatrixPersonaje();
 	JPanel pnlTablero=new JPanel();
 	JScrollPane scroll = new JScrollPane();
-	JButton ac,ag,ec,ef;
-	
+	JButton ac,ag,ec,ef,play;
+	 JLabel figura;
 	Tablero(){
 		Dimension d = new Dimension();
 		 setLocation((int) ((d.getWidth()/2)+160), 10);
@@ -46,6 +47,9 @@ public class Tablero extends JFrame implements ActionListener{
 	     ef=new JButton("Eliminar FIla");
 	     ef.setBounds(new Rectangle(450,10,140,30));
 	     ef.addActionListener(this);
+	     play=new JButton("Ir a Juego");
+	     play.setBounds(new Rectangle(0,45,140,30));
+	     play.addActionListener(this);
 	     matriz.llenar(4, 2);
 	     pnlTablero.add(matriz);
 	     getContentPane().setLayout(null);
@@ -53,6 +57,7 @@ public class Tablero extends JFrame implements ActionListener{
 	     getContentPane().add(ag);
 	     getContentPane().add(ec);
 	     getContentPane().add(ef);
+	     getContentPane().add(play);
 	     getContentPane().add(pnlTablero);
 	     
 	}
@@ -70,6 +75,18 @@ if (e.getSource()==ec) {
 }
 if (e.getSource()==ef) {
 	
+}
+if (e.getSource()==play) {
+	 MarioBros juego = new MarioBros();
+	 JFrame pantalla = new JFrame("Mario Maker EDD");
+	 pantalla.add(juego);
+	 pantalla.pack();
+	 pantalla.setResizable(false);
+	 pantalla.setLocationRelativeTo(null);
+	 pantalla.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	 pantalla.setVisible(true);
+	  pantalla.setFocusable(true);
+     juego.start();
 }
 		
 	}
