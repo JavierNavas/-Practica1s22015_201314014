@@ -278,7 +278,7 @@ if (e.getSource()==table) {
 
 }
 if (e.getSource()==ver) {
-	generartxt();
+	//generartxt();
 	generar();
 }
 		
@@ -418,14 +418,9 @@ if (e.getSource()==ver) {
 	        b.write("graph G");
 	         b.write("{");
 	         for (int i = 0; i <lista.tamano(); i++){
-	             b.write(lista.obtener(i).tipo+"_"+lista.obtener(i).nombre);
-	         if(lista.obtener(i).siguiente==null){
-	        	 b.write(";");
+	             b.write(lista.obtener(i).tipo+"_"+lista.obtener(i).nombre+"--");
 	         }
-	         else{
-	        	 b.write("--"); 
-	         }
-	         }
+	         b.write(";");
 	         b.write("}");
 	         b.close();
 	     }catch(Exception e){ 

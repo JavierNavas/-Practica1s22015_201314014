@@ -278,7 +278,7 @@ if (e.getSource()==table) {
 
 }
 if (e.getSource()==ver) {
-	generartxt();
+	//generartxt();
 	generar();
 }
 		

@@ -278,8 +278,8 @@ if (e.getSource()==table) {
 
 }
 if (e.getSource()==ver) {
-	generartxt();
-	generar();
+	
+
 }
 		
 	}
@@ -395,7 +395,7 @@ if (e.getSource()==ver) {
 		   try{
 		       String dotPath="C:\\Program Files\\Graphviz2.38\\bin\\dot.exe";
 		       String fileInputPath="C:\\Users\\MilTon navarro\\Downloads\\data\\Desktop\\lista.txt";
-		       String fileOutputPath="C:\\Users\\MilTon navarro\\Downloads\\data\\Desktop\\lista.jpg";;
+		       String fileOutputPath="C:\\Users\\MilTon navarro\\Downloads\\data\\Desktop\\grafo.jpg";;
 		       String tParam="-Tjpg";
 		       String toParam="-o";
 		       String[]cmd= new String[5];
@@ -417,15 +417,21 @@ if (e.getSource()==ver) {
 	    try (BufferedWriter b = new BufferedWriter(new FileWriter(file));) {
 	        b.write("graph G");
 	         b.write("{");
-	         for (int i = 0; i <lista.tamano(); i++){
-	             b.write(lista.obtener(i).tipo+"_"+lista.obtener(i).nombre);
-	         if(lista.obtener(i).siguiente==null){
-	        	 b.write(";");
+	         for (int i = 0; i <tama; i++){
+	             b.write("Nodo"+i+";");
 	         }
-	         else{
-	        	 b.write("--"); 
-	         }
-	         }
+	         for(int i=0; i<matriz.length; i++){// Columna
+	          for(int j=0; j<i+1; j++){ //fila
+	              if(matriz[i][j]==0){
+	                  
+	              }
+	              else{
+	                for(int x=0;x<matriz[i][j];x++){
+	                  b.write("Nodo"+i+"--"+"Nodo"+j+";");
+	                }
+	              }
+	            }  
+	          } 
 	         b.write("}");
 	         b.close();
 	     }catch(Exception e){ 

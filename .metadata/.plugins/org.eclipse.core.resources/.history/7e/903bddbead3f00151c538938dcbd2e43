@@ -8,8 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.net.URL;
 
 import javax.swing.Box;
@@ -38,7 +36,7 @@ public class Inicio extends JFrame implements ActionListener {
 	private JTextField texto,nombrepersonaje;
 	private JLabel mario,gomba,pared,eliga,uno,dos,tres,cuatro,cinco,seis,siete;
 	JButton pa,table,btngoomba,btnficha,btnhongo,btnimprimir,btnsuelo,btnpared,btnkoopa,p;
-	static JButton btnAgregarmario,btncastillo,ver;
+	static JButton btnAgregarmario,btncastillo;
 	int cont=1;
 	
 	JPanel pnlpersonaje=new JPanel();
@@ -94,9 +92,6 @@ public class Inicio extends JFrame implements ActionListener {
 	        table=new JButton("Ir a Tablero");
 	        table.setBounds(new Rectangle(450,150,150,20));
 	        table.addActionListener(this);  
-	        ver=new JButton("Ver lista en Graphviz");
-	        ver.setBounds(new Rectangle(450,250,170,20));
-	        ver.addActionListener(this);  
 	        String path = "/mar1.jpeg";
 	        URL url = this.getClass().getResource(path);  
 	        ImageIcon icon = new ImageIcon(url);  
@@ -167,13 +162,13 @@ public class Inicio extends JFrame implements ActionListener {
 			pnlseleccion.add(btncastillo);
 			pnlseleccion.add(uno);
 			pnlseleccion.add(dos);
-			pnlseleccion.add(tres); 
+			pnlseleccion.add(tres);
 			pnlseleccion.add(cuatro);
 			pnlseleccion.add(cinco);
 			pnlseleccion.add(seis);
 			pnlseleccion.add(siete);
 			pnlseleccion.add(table);
-			pnlseleccion.add(ver);
+		
 			MenuJuego.addTab("Agregar Personaje",pnlseleccion);
 			pnlpersonaje.setLayout(null);
 			pnlpersonaje.setPreferredSize(new Dimension(1000, 1000)); 
@@ -276,10 +271,6 @@ if (e.getSource()==table) {
 	inicio.setVisible(true);
 	inicio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-}
-if (e.getSource()==ver) {
-	generartxt();
-	generar();
 }
 		
 	}
@@ -390,46 +381,4 @@ if (e.getSource()==ver) {
 		mi_panel.repaint();
 	}
 	
-	
-	public void generar(){
-		   try{
-		       String dotPath="C:\\Program Files\\Graphviz2.38\\bin\\dot.exe";
-		       String fileInputPath="C:\\Users\\MilTon navarro\\Downloads\\data\\Desktop\\lista.txt";
-		       String fileOutputPath="C:\\Users\\MilTon navarro\\Downloads\\data\\Desktop\\lista.jpg";;
-		       String tParam="-Tjpg";
-		       String toParam="-o";
-		       String[]cmd= new String[5];
-		       cmd[0]=dotPath;
-		       cmd[1]=tParam;
-		       cmd[2]=fileInputPath;
-		       cmd[3]=toParam;
-		       cmd[4]= fileOutputPath; 
-		       Runtime rt = Runtime.getRuntime();
-		       rt.exec(cmd);
-		   }catch(Exception ex){
-		       ex.printStackTrace();
-		   }  finally {
-		 }
-		}
-	
-	public void generartxt(){
-	    String file="C:\\Users\\MilTon navarro\\Downloads\\data\\Desktop\\lista.txt";
-	    try (BufferedWriter b = new BufferedWriter(new FileWriter(file));) {
-	        b.write("graph G");
-	         b.write("{");
-	         for (int i = 0; i <lista.tamano(); i++){
-	             b.write(lista.obtener(i).tipo+"_"+lista.obtener(i).nombre);
-	         if(lista.obtener(i).siguiente==null){
-	        	 b.write(";");
-	         }
-	         else{
-	        	 b.write("--"); 
-	         }
-	         }
-	         b.write("}");
-	         b.close();
-	     }catch(Exception e){ 
-	       	JOptionPane.showMessageDialog(null,"El Archivo no fue encontrado","Error", JOptionPane.INFORMATION_MESSAGE);
-	        }  
-	}
 }
