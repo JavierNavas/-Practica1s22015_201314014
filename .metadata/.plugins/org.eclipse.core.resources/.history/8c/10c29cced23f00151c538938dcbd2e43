@@ -77,12 +77,12 @@ public void recorrer(){
 
 
 public NodoMatriz obtenerNodoy(int posicion){
-    NodoMatriz temp = primero;
+    NodoMatriz temp1 = primero;
    
-    while(temp.getY()<posicion){
-        temp=temp.getAbajo();
+    while(temp1.getY()<posicion){
+        temp1=temp1.getAbajo();
     }
     
-   return temp ;
+   return temp1 ;
 }
 }

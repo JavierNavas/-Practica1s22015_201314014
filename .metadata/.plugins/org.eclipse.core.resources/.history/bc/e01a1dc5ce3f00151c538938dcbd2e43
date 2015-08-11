@@ -72,9 +72,11 @@ if (e.getSource()==ag) {
 		}
 if (e.getSource()==ec) {
 	 String imagen ="/1up.gif";
-	 Personaje aux = new Personaje("hola","null",0);
-	 matriz.agregar(0,0,1,0,aux,imagen);
-	 System.out.println(matriz.obtener(1,0).personaje.getNombre());
+	 Personaje aux = new Personaje("null","null",0);
+	 matriz.agregar(0,0,1,2,aux,imagen);
+	 matriz.removeAll();
+	
+	 matriz.repaint();
 }
 if (e.getSource()==ef) {
 	

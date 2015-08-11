@@ -1,32 +1,31 @@
 package Edd;
 
-public class ListaCabezera {
-Cabezera primero;
-Cabezera ultimo;
-int tamanox;
+public class ListaLateral {
+Lateral primero;
+Lateral ultimo;
+int tamanoy;
 
-ListaCabezera() {
+ListaLateral() {
 	this.primero = null;
 	this.ultimo = null;
-	this.tamanox = 0; 
+	this.tamanoy=0;
 }
 
-public void insertar(Cabezera insertar){
+public void insertar(Lateral insertar){
 	if(vacio()){
 			primero=insertar;
 			ultimo=insertar;
-			tamanox++;
 		}else{
-			if(insertar.getX()<primero.getX()){
+			if(insertar.getY()<primero.getY()){
 				insertarFrente(insertar);
-				tamanox++;
+				tamanoy++;
 			}
-			else if(insertar.getX()>ultimo.getX()){
+			else if(insertar.getY()>ultimo.getY()){
 				InsertarFinal(insertar);
-				tamanox++;
+				tamanoy++;
 			}else{
 				InsertarMedio(insertar);
-				tamanox++;
+				tamanoy++;
 			}
 		}
 	}
@@ -40,23 +39,23 @@ public boolean vacio(){
 	}
 }
 
-public void insertarFrente(Cabezera insertar){
+public void insertarFrente(Lateral insertar){
 	primero.setAnterior(insertar);
 	insertar.setSiguiente(primero);
 	primero=insertar;//el nodo agregado se vuelve el primero de la lista
 }
 
-public void InsertarFinal(Cabezera insertar){
+public void InsertarFinal(Lateral insertar){
 	ultimo.setSiguiente(insertar);
 	insertar.setAnterior(ultimo);
 	ultimo=insertar;// el nodo ingresado se vuelve el el tultimo de la lista
 }
 
-public void InsertarMedio(Cabezera insertar){
-	Cabezera aux1; 
-	Cabezera aux2;
+public void InsertarMedio(Lateral insertar){
+	Lateral aux1; 
+	Lateral aux2;
 	aux1=primero;
-	while(aux1.getX()<insertar.getX()){
+	while(aux1.getY()<insertar.getY()){
 		aux1=aux1.getSiguiente();
 	}
 	aux2=aux1.getAnterior();
@@ -70,36 +69,37 @@ public void InsertarMedio(Cabezera insertar){
 
 public void recorrer(){
 	if(!vacio()){
-	Cabezera aux1=primero;
+	Lateral aux1=primero;
 	while(aux1!=null){
 	aux1=aux1.getSiguiente();	
 	}
    }
 }
 
-public Cabezera buscar(int x){
-	if(existe(x)){
-		Cabezera aux;
+
+public Lateral buscar(int y){
+	if(existe(y)){
+		Lateral aux;
 		aux=primero;
-		while(aux.getX()!=x){
+		while(aux.getY()!=y){
 			aux=aux.siguiente;
 		}
 		return aux;
 	}else{
-		return(new Cabezera(-1)); 
+		return(new Lateral(-1)); 
 	}
 	
 }
 
-public boolean existe(int x){
+public boolean existe(int y){
 	if(vacio()){
 		return false;
 	}
 	else{
-		Cabezera aux;
+		Lateral aux;
 		aux=primero;
 		while(aux!=null){
-			if(aux.getX()==x){
+			if(aux.getY()==y){
 				System.out.println("si lo encontre");
 				return true;
 				
@@ -113,5 +113,6 @@ public boolean existe(int x){
 	}
 	return false;
  }
+
 
 }

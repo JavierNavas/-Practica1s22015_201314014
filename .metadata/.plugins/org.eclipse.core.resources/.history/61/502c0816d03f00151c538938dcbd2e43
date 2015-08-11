@@ -76,13 +76,12 @@ int filas,columnas;
  public NodoMatriz obtener(int x,int y){
 	 if(cabezera.existe(x)==false){
 		 System.out.println("no hay nodo");
-		 return null;
 	 }
-	 else{
 	 Cabezera Ctemporal;
+	 NodoMatriz temp;
 	 Ctemporal=cabezera.buscar(x);
-	 return Ctemporal.getColumna().obtenerNodoy(y);
-	 }
+	 temp=Ctemporal.getColumna().obtenerNodoy(x);
+	return temp;
 	 
  }
  

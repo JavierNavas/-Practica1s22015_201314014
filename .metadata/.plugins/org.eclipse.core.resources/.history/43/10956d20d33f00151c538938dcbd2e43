@@ -80,7 +80,7 @@ public NodoMatriz obtenerNodoy(int posicion){
     NodoMatriz temp = primero;
    
     while(temp.getY()<posicion){
-        temp=temp.getAbajo();
+        temp=temp1.getAbajo();
     }
     
    return temp ;

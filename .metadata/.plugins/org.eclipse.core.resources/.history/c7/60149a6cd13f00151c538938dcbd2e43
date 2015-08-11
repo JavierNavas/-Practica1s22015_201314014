@@ -86,6 +86,7 @@ public Cabezera buscar(int x){
 		}
 		return aux;
 	}else{
+		System.out.println("no encontre cabexera");
 		return(new Cabezera(-1)); 
 	}
 	

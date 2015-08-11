@@ -42,8 +42,8 @@ int filas,columnas;
 	 }
 	 Cabezera Ctemporal;
 	 Lateral Ltemporal;
-	 Ctemporal=cabezera.buscar(x2);
-	 Ltemporal=lateral.buscar(y2);
+	 Ctemporal=cabezera.buscar(x);
+	 Ltemporal=lateral.buscar(y);
 	 Ctemporal.getColumna().insertar(nodo);	
 	 Ltemporal.getFila().insertar(nodo);
 	 nodo.setBounds(new Rectangle(x,y,40,40));
@@ -72,33 +72,27 @@ int filas,columnas;
  public void AgregarFila(){
 	 
  }
+ public void mostrar(){
+	 
+ }
  
- public NodoMatriz obtener(int x,int y){
+ public NodoMatriz Obtener(int x,int y){
 	 if(cabezera.existe(x)==false){
 		 System.out.println("no hay nodo");
-		 return null;
 	 }
-	 else{
 	 Cabezera Ctemporal;
+	 NodoMatriz temp;
 	 Ctemporal=cabezera.buscar(x);
-	 return Ctemporal.getColumna().obtenerNodoy(y);
-	 }
+	 temp=Ctemporal.getColumna().obtenerNodoy(y);
+	return temp;
 	 
  }
  
  public void imprimir(){
-	 int posx = 0;
-	 int posy = 0;
-	 NodoMatriz aux;
 	 for(int i=0;i<cabezera.tamanox;i++){
 		 for(int j=0;j<lateral.tamanoy;j++){
-			  aux= obtener(i,j);
-			  aux.setBounds(new Rectangle(posx,posy,40,40));
-			  this.add(aux);
-			  posy+=40;
+			 
 		 }
-		 posx+=40;
-		 posy=0;
 	 }
  }
  

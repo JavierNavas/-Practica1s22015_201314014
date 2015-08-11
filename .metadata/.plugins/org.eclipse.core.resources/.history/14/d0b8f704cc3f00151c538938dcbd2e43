@@ -15,7 +15,6 @@ public void insertar(Cabezera insertar){
 	if(vacio()){
 			primero=insertar;
 			ultimo=insertar;
-			tamanox++;
 		}else{
 			if(insertar.getX()<primero.getX()){
 				insertarFrente(insertar);

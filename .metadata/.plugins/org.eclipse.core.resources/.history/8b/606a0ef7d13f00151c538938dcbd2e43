@@ -20,7 +20,6 @@ private NodoMatriz derecha=null;
 private NodoMatriz izquierda=null;
 Personaje personaje;
 int x,y,x2,y2;
-String imagen;
 
 
 public NodoMatriz(int x,int y,int x2,int y2,Personaje personaje,String imagen) {
@@ -33,7 +32,6 @@ public NodoMatriz(int x,int y,int x2,int y2,Personaje personaje,String imagen) {
 	this.y=y;
 	this.x2=x2;
 	this.y2=y2;
-	this.imagen=imagen;
 	String path4 = imagen;
     URL url4 = this.getClass().getResource(path4);  
     ImageIcon icon4 = new ImageIcon(url4);

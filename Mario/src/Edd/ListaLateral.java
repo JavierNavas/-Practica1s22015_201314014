@@ -3,24 +3,30 @@ package Edd;
 public class ListaLateral {
 Lateral primero;
 Lateral ultimo;
+int tamanoy;
 
 ListaLateral() {
 	this.primero = null;
 	this.ultimo = null;
+	this.tamanoy=0;
 }
 
 public void insertar(Lateral insertar){
 	if(vacio()){
 			primero=insertar;
 			ultimo=insertar;
+			tamanoy++;
 		}else{
 			if(insertar.getY()<primero.getY()){
 				insertarFrente(insertar);
+				tamanoy++;
 			}
 			else if(insertar.getY()>ultimo.getY()){
 				InsertarFinal(insertar);
+				tamanoy++;
 			}else{
 				InsertarMedio(insertar);
+				tamanoy++;
 			}
 		}
 	}

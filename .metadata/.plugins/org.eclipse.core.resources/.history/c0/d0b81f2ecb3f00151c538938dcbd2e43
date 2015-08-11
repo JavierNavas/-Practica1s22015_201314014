@@ -3,30 +3,29 @@ package Edd;
 public class ListaCabezera {
 Cabezera primero;
 Cabezera ultimo;
-int tamanox;
+int tamanoy;
 
 ListaCabezera() {
 	this.primero = null;
 	this.ultimo = null;
-	this.tamanox = 0; 
+	this.tamanoy = 0; 
 }
 
 public void insertar(Cabezera insertar){
 	if(vacio()){
 			primero=insertar;
 			ultimo=insertar;
-			tamanox++;
 		}else{
 			if(insertar.getX()<primero.getX()){
 				insertarFrente(insertar);
-				tamanox++;
+				tamanoy++;
 			}
 			else if(insertar.getX()>ultimo.getX()){
 				InsertarFinal(insertar);
-				tamanox++;
+				tamanoy++;
 			}else{
 				InsertarMedio(insertar);
-				tamanox++;
+				tamanoy++;
 			}
 		}
 	}
